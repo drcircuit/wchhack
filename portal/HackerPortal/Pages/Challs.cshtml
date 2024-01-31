@@ -1,0 +1,125 @@
+﻿@page
+@model ChallsModel
+@Html.AntiForgeryToken()
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h1>Challenges</h1>
+
+    <div class="row">
+    @foreach (var challenge in Model.Challenges)
+        {
+            <div class="col-md-6 mb-4">
+                <div class="challenge-tile">
+                    <div class="tile-header">
+                        @challenge.Title
+                    </div>
+                    <div class="tile-body">
+                        <table class="table">
+                            <tr>
+                                <th>Description:</th>
+                                <td>@challenge.Description</td>
+                            </tr>
+                        
+                            <tr>
+                                <th>Score:</th>
+                                <td>@challenge.Points</td>
+                            </tr>
+                            <!-- link to chall -->
+                            <tr>
+                                <th>Link:</th>
+                                <td><a href="@challenge.Link" class="btn-primary btn">Open</a></td>
+                            </tr>
+                            <tr>
+                                <th>Hint:</th>
+                                <td>
+                                    <div class="hint" style="display: none;">@challenge.Hint</div>
+                                    <button class="btn btn-primary hint-button" type="button" data-toggle="hint"
+                                        data-challengeid="@challenge.Id">Hint</button>
+                                </td>
+                            </tr>
+                        </table>
+
+                        @if (Model.HasSolvedChallenge(challenge.Id))
+                        {
+                            <span class="badge badge-success">SOLVED</span>
+                        }
+                        else
+                        {
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Flag" aria-label="Flag"
+                                    aria-describedby="basic-addon2" id="flagInput_@challenge.Id">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary check-button" type="button"
+                                        data-challengeid="@challenge.Id">Check Answer!</button>
+                                </div>
+                            </div>
+                            <div class="result-message" id="resultMessage_@challenge.Id"></div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @section Scripts {
+    <script>
+        function updateScore(score) {
+            // Update the user's score in the navbar
+            const userScoreElement = document.getElementById("userscore");
+            if (userScoreElement) {
+                userScoreElement.textContent = `Score: ${score}`;
+            }
+        }
+        // Add JavaScript for checking the answer here
+        $(document).ready(function () {
+            $(".check-button").click(function () {
+                var challengeId = $(this).data("challengeid");
+                var flagInput = $("#flagInput_" + challengeId);
+                var resultMessage = $("#resultMessage_" + challengeId);
+
+                // Make an AJAX request to check the answer
+                $.ajax({
+                    type: "POST",
+                    url: "/Challs?handler=CheckAnswer",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN",
+                            $('input:hidden[name="__RequestVerificationToken"]').val());
+                    },
+                    contentType: "application/json",
+                    data: JSON.stringify({ challengeId: challengeId, flag: flagInput.val() }),
+                    success: function (response) {
+                        if (response.success) {
+                            // Correct answer
+                            resultMessage.removeClass("error-message").addClass("success-message").html("Correct! You've solved it!");
+
+                            // Replace the input field and button with "SOLVED" badge
+                            flagInput.parent().html('<span class="badge badge-success">SOLVED</span>');
+                            updateScore(response.score);
+                        } else {
+                            // Incorrect answer
+                            resultMessage.removeClass("success-message").addClass("error-message").html("Sorry, too bad, not correct...");
+                        }
+                    },
+                    error: function () {
+                        // Handle error here
+                    }
+                });
+            });
+
+            // Add JavaScript for toggling hint visibility
+            $(".hint-button").click(function () {
+                var challengeId = $(this).data("challengeid");
+                var hint = $(this).closest(".challenge-tile").find(".hint");
+                hint.slideToggle();
+            });
+        });
+    </script>
+}
+}
+else
+{
+    <!-- Display login message -->
+    <p>Please log in to view challenges.</p>
+    <a href="/Login">Login</a>
+}

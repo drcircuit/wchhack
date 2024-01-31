@@ -1,0 +1,24 @@
+{
+  "name": "graphEffects",
+  "authors": ["The Working Class Hacker &lt;workingclasshacker@gmail.com&gt;"],
+  "description": "graphEffects",
+  "main": "index.html",
+  "keywords": [
+    "gfx",
+    "demo",
+    "js"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "drc.canvas.lib": "DrCircuitsCanvasLibrary#*"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

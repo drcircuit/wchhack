@@ -1,0 +1,106 @@
+html {
+  font-size: 14px;
+}
+
+@font-face {
+  font-family: '8bit';
+  src: url("../fonts/8bitmage.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'hacked';
+  src: url("../fonts/hacked.ttf") format("truetype");
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color: #111;
+  color: #999;
+  font-family: '8bit', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'hacked', sans-serif;
+  color: #258cfb;
+}
+
+nav {
+  background-color: #0d0a0b;
+  background-image: linear-gradient(0deg, #0d0a0b 0%, #009fc2 74%);
+}
+
+#userscore {
+  color: greenyellow;
+}
+
+.btn-danger {
+  background-color: #edb88b !important;
+  border: 2px solid #cd5334 !important;
+  border-style: ridge !important;
+  background-image: linear-gradient(315deg, #edb88b 0%, #cd5334 74%) !important;
+}
+
+.btn-primary {
+  background-color: #edb88b !important;
+  border: 2px solid #cd5334 !important;
+  border-style: ridge !important;
+  background-image: linear-gradient(315deg, #edb88b 0%, #cd5334 74%) !important;
+}
+.challenge-tile{
+  border: 2px solid #999;
+  border-style:outset;
+}
+.tile-header{
+  background-color: #0d0a0b;
+  background-image: linear-gradient(0deg, #0d0a0b 0%, #009fc2 74%);
+  padding: 5px;
+  color: white;
+  border-bottom: 2px solid #444;
+}
+.challenge-tile th{
+  color: greenyellow;
+}
+.challenge-tile td{
+  color: #999;
+}
+.form-control{
+  width: 80% !important; 
+  margin: 0 auto !important;
+}
+.badge{
+  background-color: #0d0a0b;
+  background-image: linear-gradient(0deg, #0d0a0b 0%, #009fc2 74%);
+  margin: 2px;
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  margin-bottom: 10px;
+}
+h1{
+  color:#cd5334 !important;
+}

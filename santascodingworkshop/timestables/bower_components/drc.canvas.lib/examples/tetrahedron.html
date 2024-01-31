@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dcl.js"></script>
+    <title>Spinning Tetrahedron Example</title>
+</head>
+<body>
+<script>
+    var scr = dcl.setupScreen(window.innerWidth, window.innerHeight);
+    scr.setBgColor("black");
+    var angle = 0;
+    var dod = {
+        vertices: [
+            dcl.vector.point(-1, -1, -1),
+            dcl.vector.point(-1, 1, 1),
+            dcl.vector.point(1, -1, 1),
+            dcl.vector.point(1, 1, -1)
+        ],
+        faces: [
+            [0, 1, 2,0],
+            [0, 3, 2,0],
+            [0, 1, 3,0]
+        ],
+        transformedVertices: []
+    };
+
+    function draw() {
+        dod.vertices.forEach(function (v, i) {
+            dod.transformedVertices[i] = v
+                .rotateY(angle)
+                .rotateZ(-angle/2)
+                .rotateX(angle*2)
+                .project(scr.width, scr.height, scr.height, 5);
+        });
+
+        dod.faces.forEach(function (f,fi) {
+            var a = dod.transformedVertices[f[0]];
+            dcl.curve.start(a.x, a.y);
+            f.forEach(function (v, i, arr) {
+                var p = dod.transformedVertices[v];
+                if (i === 0) {
+                    dcl.curve.start(p.x, p.y);
+                }
+                dcl.curve.vertex(p.x, p.y);
+                if (i === arr.length - 1) {
+                    dcl.curve.stroke("white",2);
+                    dcl.curve.end();
+                }
+            });
+        });
+        angle += 1;
+    }
+
+    dcl.animate();
+</script>
+</body>
+</html>

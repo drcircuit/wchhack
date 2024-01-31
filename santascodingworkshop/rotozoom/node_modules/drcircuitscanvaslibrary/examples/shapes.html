@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../dcl.js"></script>
+    <title>Spinning Cube Example</title>
+</head>
+
+<body>
+    <script>
+        var scr = dcl.setupScreen(window.innerWidth, window.innerHeight);
+        scr.setBgColor("black");
+        var angle = 0;
+
+
+
+        function draw() {
+            dcl.clear();
+            for (let i = 0; i < 300; i++) {
+                let x = dcl.randomi(0, scr.width);
+                let y = dcl.randomi(0, scr.height);
+                let color = dcl.color(dcl.randomi(0, 255), dcl.randomi(0, 255), dcl.randomi(0, 255));
+                if (i % 2 === 0) {
+                    dcl.rect(x,y,dcl.random(10,50), dcl.random(10,50), color);
+                } else if(i % 3 === 0){
+                    dcl.circle(x,y,dcl.random(3,20), color);
+                } else {
+                    var angle = dcl.random(0,360).toRadians();
+                    var length = dcl.random(10,200);
+                    let x2 = length * Math.sin(angle) + x;
+                    let y2 = length *   Math.cos(angle) + y;
+                    dcl.line(x,y,x2,y2,"2px",color);
+                }
+            }
+        }
+        draw();
+
+    </script>
+</body>
+
+</html>

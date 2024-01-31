@@ -1,0 +1,33 @@
+{
+  "name": "drc.canvas.lib",
+  "version": "1.0.6",
+  "authors": [
+    "workingclasshacker@gmail.com"
+  ],
+  "description": "A small utility library I made for myself to help create canvas based projects.",
+  "main": "dcl.js",
+  "keywords": [
+    "Canvas",
+    "HTML",
+    "Helper",
+    "Utility"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/drcircuit/DrCircuitsCanvasLibrary",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.0.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.6",
+    "commit": "db1ae4d3c91bb93879c7f47b2470c8de121e2931"
+  },
+  "_source": "https://github.com/drcircuit/DrCircuitsCanvasLibrary.git",
+  "_target": "*",
+  "_originalSource": "DrCircuitsCanvasLibrary"
+}

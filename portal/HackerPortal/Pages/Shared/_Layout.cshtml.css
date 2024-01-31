@@ -1,0 +1,63 @@
+﻿/* Dark Mode */
+body {
+  background-color: #111;
+}
+/* Navbar */
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+  color: #fff; /* Navbar brand text color */
+}
+
+/* Links */
+a {
+  color: #29a329; /* Links color in dark mode */
+}
+
+/* Primary Button */
+.btn-primary {
+  color: #fff;
+  background-color: #007acc; /* Darker background color */
+  border-color: #0055a0; /* Darker border color */
+}
+
+/* Active Pills */
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #007acc; /* Darker background color */
+  border-color: #0055a0; /* Darker border color */
+}
+
+/* Borders */
+.border-top {
+  border-top: 1px solid #555; /* Darker border color */
+}
+.border-bottom {
+  border-bottom: 1px solid #555; /* Darker border color */
+}
+
+/* Box Shadow */
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .2); /* Darker box shadow */
+}
+
+/* Button Styling */
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+  color: #fff; /* Button text color in dark mode */
+  background-color: #007acc; /* Darker button background color */
+  border-color: #0055a0; /* Darker button border color */
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+  background-color: #111; /* Dark background color for the footer */
+  color: #fff; /* Footer text color */
+}

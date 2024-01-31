@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dcl.js"></script>
+    <title>Spinning Dodecahedron Example</title>
+</head>
+<body>
+<script>
+    var scr = dcl.setupScreen(window.innerWidth, window.innerHeight);
+    scr.setBgColor("black");
+    var angle = 0;
+    var dod = {
+        vertices: [
+            dcl.vector(dcl.const.iphi, 0, dcl.const.phi),
+            dcl.vector(-dcl.const.iphi, 0, dcl.const.phi),
+            dcl.vector(-dcl.const.iphi, 0, -dcl.const.phi),
+            dcl.vector(dcl.const.iphi, 0, -dcl.const.phi),
+
+            dcl.vector(dcl.const.phi, dcl.const.iphi,0),
+            dcl.vector(dcl.const.phi, -dcl.const.iphi,0),
+            dcl.vector(-dcl.const.phi, -dcl.const.iphi,0),
+            dcl.vector(-dcl.const.phi, dcl.const.iphi,0),
+
+            dcl.vector(0, dcl.const.phi, dcl.const.iphi),
+            dcl.vector(0, dcl.const.phi, -dcl.const.iphi),
+            dcl.vector(0, -dcl.const.phi, -dcl.const.iphi),
+            dcl.vector(0, -dcl.const.phi, dcl.const.iphi),
+
+            dcl.vector(1, 1, 1),
+            dcl.vector(1, -1, 1),
+            dcl.vector(-1, -1, 1),
+            dcl.vector(-1, 1, 1),
+
+            dcl.vector(-1, 1, -1),
+            dcl.vector(1, 1, -1),
+            dcl.vector(1, -1, -1),
+            dcl.vector(-1, -1, -1)
+        ],
+        faces: [
+            [0, 12, 4, 5,13, 0],
+            [0, 1, 14, 11,13, 0],
+            [0, 12, 8, 15,1, 0],
+            [1, 15, 7, 6,14, 1],
+            [15,8, 9, 16,7, 15],
+            [11,10, 19, 6,14, 11],
+            [11,13, 5, 18,10, 11],
+            [19,10, 18, 3,2, 19],
+            [16,2, 3, 17,9, 16],
+            [9,17, 4, 12,8, 9],
+
+        ],
+        transformedVertices: []
+    };
+
+    function draw() {
+        dod.vertices.forEach(function (v, i) {
+            dod.transformedVertices[i] = v
+                .rotateY(angle)
+                .rotateZ(-angle/2)
+                .rotateX(angle*2)
+                .project(scr.width, scr.height, scr.height / 2, 3.5);
+        });
+        dod.faces.forEach(function (f) {
+            var a = dod.transformedVertices[f[0]];
+            dcl.curve.start(a.x, a.y);
+            f.forEach(function (v, i, arr) {
+                var p = dod.transformedVertices[v];
+                if (i === 0) {
+                    dcl.curve.start(p.x, p.y);
+                }
+                dcl.curve.vertex(p.x, p.y);
+                if (i === arr.length - 1) {
+                    dcl.curve.stroke("white", 2);
+                    dcl.curve.end();
+                }
+            });
+        });
+        angle += 1;
+    }
+
+    dcl.animate();
+</script>
+</body>
+</html>

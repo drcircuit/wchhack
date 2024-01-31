@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+    padding:0;
+    background: #222;
+    display: block;
+    overflow: hidden;
+}
+canvas{
+    display: block;
+    background: #222;
+    margin:auto;
+}
+footer {
+    position: absolute;
+    bottom: 4%;
+    width:100%;
+}
+footer h1{
+    color: #eee;
+    text-align: center;
+    font-family: "Courier";
+    font-weight: normal;
+    font-size:10pt;
+}

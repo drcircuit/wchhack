@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dcl.js"></script>
+    <title>Curve Library Examples</title>
+</head>
+<body>
+<script>
+    var scr = dcl.setupScreen(window.innerWidth, window.innerHeight);
+    function draw() {
+        var points = [];
+        for (var x = 0; x < scr.width; x += 100) {
+            points.push(dcl.vector.point(x, dcl.random(0, scr.height / 2) + scr.height / 5));
+        }
+        dcl.curve.plot(points);
+    };
+    dcl.stopAnimation();
+    dcl.animate();
+</script>
+</body>
+</html>

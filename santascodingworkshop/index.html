@@ -1,0 +1,252 @@
+<html>
+
+<head>
+    <style>
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .row {
+            text-align: center;
+        }
+
+        .jiggle {
+            animation: jiggle 0.5s;
+        }
+
+        @keyframes jiggle {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            10% {
+                transform: translate(-5px, 0);
+            }
+
+            20% {
+                transform: translate(5px, 0);
+            }
+
+            30% {
+                transform: translate(-5px, 0);
+            }
+
+            40% {
+                transform: translate(5px, 0);
+            }
+
+            50% {
+                transform: translate(0, 0);
+            }
+        }
+
+        body {
+            background-color: black;
+            background-image: linear-gradient(#333, #111);
+        }
+
+        #plasma-canvas {
+            position: fixed;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #eef;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+
+        }
+        pre{
+            float:left;
+            clear:both
+        }
+        p{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="plasma-canvas"></canvas>
+    <div class="container">
+        <div class="content">
+            <h1>Santa's Coding Workshop</h1>
+            <p>Coding like it's 1999...</p>
+            <div class="row">
+                <a href="/3dcube"><img class="thumbnail" src="3dcube.jpg" alt="3D Cube"></a>
+                <a href="/3dengine"><img class="thumbnail" src="3dengine.jpg" alt="3D Engine"></a>
+                <a href="/bouncey"><img class="thumbnail" src="bouncey.jpg" alt="Bouncey"></a>
+                <a href="/ember"><img class="thumbnail" src="ember.jpg" alt="Ember"></a>
+                <a href="/eternally"><img class="thumbnail" src="eternally.jpg" alt="Eternally"></a>
+            </div>
+            <div class="row">
+                <a href="/fire"><img class="thumbnail" src="fire.jpg" alt="Fire"></a>
+                <a href="/graphEffects"><img class="thumbnail" src="graphEffects.jpg" alt="Graph Effects"></a>
+                <a href="/kochJS"><img class="thumbnail" src="kochJS.jpg" alt="Koch JS"></a>
+                <a href="/mandelgl"><img class="thumbnail" src="mandelgl.jpg" alt="Mandelgl"></a>
+                <a href="/moire"><img class="thumbnail" src="moire.jpg" alt="Moire"></a>
+            </div>
+            <div class="row">
+                <a href="/plasmav2"><img class="thumbnail" src="plasmav2.jpg" alt="Plasma v2"></a>
+                <a href="/rotozoom"><img class="thumbnail" src="rotozoom.jpg" alt="Rotozoom"></a>
+                <a href="/sierpinskyJS"><img class="thumbnail" src="sierpinskyJS.jpg" alt="sierpinskyJS"></a>
+                <a href="/sphereVolumePointCloud"><img class="thumbnail" src="sphereVolumePointCloud.jpg"
+                        alt="Sphere Volume Point Cloud"></a>
+                <a href="/starfield"><img class="thumbnail" src="starfield.jpg" alt="Starfield"></a>
+            </div>
+            <div class="row">
+                <a href="/tesseract"><img class="thumbnail" src="tesseract.jpg" alt="Tesseract"></a>
+                <a href="/timestables"><img class="thumbnail" src="timestables.jpg" alt="Timestables"></a>
+                <a href="/universe"><img class="thumbnail" src="universe.jpg" alt="Universe"></a>
+                <a href="/wormhole"><img class="thumbnail" src="wormhole.jpg" alt="Wormhole"></a>
+                <a href="/zombiestrike"><img class="thumbnail" src="zombiestrike.jpg" alt="Zombie Strike"></a>
+            </div>
+        </div>
+    </div>
+    <!-- Man I dig Apache! -->
+    <script>
+        const thumbnails = document.querySelectorAll('.thumbnail');
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('mouseover', jiggle);
+            thumbnail.addEventListener('mouseout', stopJiggle);
+        });
+
+        function jiggle() {
+            this.classList.add('jiggle');
+        }
+
+        function stopJiggle() {
+            this.classList.remove('jiggle');
+        }
+
+    </script>
+    <!-- Import the WebGL2 API -->
+    <!-- Create a canvas element -->
+
+    <!-- Create a script tag for the WebGL code -->
+    <script>
+        // Get the canvas element
+        // Get the canvas element
+        const canvas = document.getElementById('plasma-canvas');
+
+        // Set the canvas dimensions to match the window
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Get the canvas context
+        const gl = canvas.getContext('webgl');
+
+        // Set the clear color to black
+        gl.clearColor(0, 0, 0, 1);
+
+        // Create a vertex shader
+        const vertexShader = gl.createShader(gl.VERTEX_SHADER);
+        // Set the vertex shader source code
+        gl.shaderSource(vertexShader, `
+  attribute vec2 a_position;
+  void main() {
+    gl_Position = vec4(a_position, 0, 1);
+  }
+`);
+        // Compile the vertex shader
+        gl.compileShader(vertexShader);
+
+        // Create a fragment shader
+        const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+        // Set the fragment shader source code
+        gl.shaderSource(fragmentShader, `
+        precision mediump float;
+
+uniform vec2 u_resolution;
+uniform float u_time;
+
+const float PI = 3.141592653589793;
+
+float plasma(vec2 position, float offset) {
+  float c1 = sin(position.x * 20.0 + u_time / 0.5 + offset) / 2.0 + 0.5;
+  float c2 = sin(position.y * 10.0 + u_time / 1.0 + offset) / 2.0 + 0.5;
+  float c3 = sin((position.x + position.y) * 2.0 + u_time / 2.0 + offset) / 2.0 + 0.5;
+  float c4 = sin(sqrt(position.x * position.x + position.y * position.y) * 5.0 + u_time / 2.0 + offset) / 2.0 + 0.5;
+  float c5 = sin((position.x * position.y) * 5.0 + u_time / .2 + offset) / 2.0 + 0.5;
+  return (c1 + c2 + c3 + c4 + c5) / 5.0;
+}
+
+void main() {
+  vec2 position = gl_FragCoord.xy / u_resolution;
+  vec3 color = vec3(plasma(position, 0.0), plasma(position, PI / 2.0), plasma(position, PI));
+  gl_FragColor = vec4(color, 1);
+}
+
+  `);
+        // Compile the fragment shader
+        gl.compileShader(fragmentShader);
+
+        // Create a program and attach the shaders
+        const program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        // Link the program
+        gl.linkProgram(program);
+        // Use the program
+        gl.useProgram(program);
+        const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+        gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+
+        // Set up the position attribute
+        const positionLocation = gl.getAttribLocation(program, 'a_position');
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        const positions = [
+            -1, -1,
+            1, -1,
+            -1, 1,
+            -1, 1,
+            1, -1,
+            1, 1
+        ];
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+        gl.enableVertexAttribArray(positionLocation);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+        // Set up the time uniform
+        const timeLocation = gl.getUniformLocation(program, 'u_time');
+
+        // Animate the plasma effect
+        function animate() {
+            // Update the time uniform
+            gl.uniform1f(timeLocation, performance.now() / 1000);
+
+            // Clear the canvas
+            gl.clear(gl.COLOR_BUFFER_BIT);
+
+            // Draw the triangles
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+            // Animate again on the next frame
+            requestAnimationFrame(animate);
+        }
+
+        // Start the animation
+        animate();
+
+    </script>
+</body>
+
+</html>

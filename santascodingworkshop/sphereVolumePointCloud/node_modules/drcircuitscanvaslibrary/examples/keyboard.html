@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../dcl.js"></script>
+    <title>Keyboard Library Examples</title>
+</head>
+
+<body>
+    <script>
+        var scr = dcl.setupScreen(window.innerWidth, window.innerHeight);
+        scr.setBgColor("black");
+        let speed = 10;
+        let minSpeed = 10;
+        let maxSpeed = 50;
+        let dampening = .02;
+        let rad = 30;
+        var c = {
+            pos: dcl.vector(scr.width / 2, scr.height / 2),
+            dir: dcl.vector(0, 0),
+            update: function () {
+                c.pos = c.pos.add(c.dir);
+            }
+        }
+        function incSpeed() {
+            speed++;
+            if (speed > maxSpeed) {
+                speed = maxSpeed;
+            }
+        }
+        function decSpeed() {
+            speed *= dampening/200;
+            if (speed < minSpeed) {
+                speed = minSpeed;
+            }
+        }
+        function draw(_, dt) {
+            if (KEYB.keyPressed === -1) {
+                if (c.dir.x < 0) {
+                    c.dir.x += dampening * 5;
+                }
+                if (c.dir.y < 0) {
+                    c.dir.y += dampening *5;
+                }
+                if (c.dir.x > 0) {
+                    c.dir.x -= dampening*5;
+                }
+                if (c.dir.y > 0) {
+                    c.dir.y -= dampening*5;
+                }
+                decSpeed();
+            }
+            if (KEYB.keyPressed === KEYS.LEFT) {
+                c.dir = dcl.vector(-speed * dt, c.dir.y);
+                incSpeed();
+            }
+            if (KEYB.keyPressed === KEYS.UP) {
+                c.dir = dcl.vector(c.dir.x, -speed * dt);
+                incSpeed();
+            }
+            if (KEYB.keyPressed === KEYS.RIGHT) {
+                c.dir = dcl.vector(speed * dt, c.dir.y);
+                incSpeed();
+            }
+            if (KEYB.keyPressed === KEYS.DOWN) {
+                c.dir = dcl.vector(c.dir.x, speed * dt);
+                incSpeed();
+            }
+
+            if (c.pos.x < 0 - rad) {
+                c.pos = dcl.vector(scr.width + rad, c.pos.y);
+            }
+            if (c.pos.x > scr.width + rad) {
+                c.pos = dcl.vector(0 - rad, c.pos.y);
+            }
+            if (c.pos.y < 0 - rad) {
+                c.pos = dcl.vector(c.pos.x, scr.height + rad);
+            }
+            if (c.pos.y > scr.height + rad) {
+                c.pos = dcl.vector(c.pos.x, 0 - rad);
+            }
+
+
+            dcl.circle(c.pos.x, c.pos.y, rad, RED);
+            dcl.text(`DT: ${dt.toFixed(2)}`, scr.width / 2, scr.height / 2);
+            dcl.text(`POS: ${floor(c.pos.x)}, ${floor(c.pos.y)}`, scr.width / 2, scr.height / 2 + 20);
+            dcl.text(`SPEED: ${speed}`, scr.width/2, scr.height/2+40)
+            c.update();
+        };
+        // dcl.stopAnimation();
+        dcl.animate();
+    </script>
+</body>
+
+</html>

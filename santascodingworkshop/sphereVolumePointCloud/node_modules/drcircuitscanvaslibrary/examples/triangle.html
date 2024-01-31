@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dcl.js"></script>
+    <title>Spinning Cube Example</title>
+</head>
+<body>
+<script>
+    var scr = dcl.setupScreen(window.innerWidth, window.innerHeight);
+    scr.setBgColor("black");
+    var angle = 0;
+    var cube = {
+        vertices: [
+           dcl.vector(0,-1,0),
+           dcl.vector(-1,1,0),
+           dcl.vector(1,1,0)
+        ],
+        faces: [
+            [0,1,2,0]
+        ],
+        transformedVertices: []
+    };
+
+    function draw() {
+        cube.vertices.forEach(function (v, i) {
+            cube.transformedVertices[i] = v.rotateY(angle).rotateZ(-angle/2).rotateX(angle/4).project(scr.width, scr.height, scr.height / 2, 3.5);
+        });
+        cube.faces.forEach(function (f) {
+            var a = cube.transformedVertices[f[0]];
+            var points = [];
+            f.forEach((v,i)=>{
+                points.push(cube.transformedVertices[v]);
+            });
+            dcl.curve.plot(points, WHITE, 3, dcl.color(180, 200, 200));
+          
+        });
+        angle += 1;
+    }
+
+    dcl.animate();
+</script>
+</body>
+</html>

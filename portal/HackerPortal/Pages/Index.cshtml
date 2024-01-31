@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+
+@{
+    Layout = null; // Disable layout for this page
+}
+
+@{
+    if (!Model.UserExists)
+    {
+        // No user exists, redirect to the registration page
+        Response.Redirect("/Register");
+    }
+    else
+    {
+        // User exists, redirect to the login page
+        Response.Redirect("/Login");
+    }
+}

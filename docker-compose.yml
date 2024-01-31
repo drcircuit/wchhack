@@ -1,0 +1,38 @@
+services:
+  astcomputers:
+    build: ./ASTComputers/
+    ports: 
+      - "85:8888"
+  grinchcalculator:
+    build: ./grinchcalculator/
+    ports:
+      - "83:80"
+  grinchserialkiller:
+    build: ./grinchserialkiller/
+    ports:
+      - "84:7331"
+  receiptupload:
+    build: ./receiptexifer/
+    ports:
+      - "81:80"
+  santasbingo:
+    build: ./santasbingo/
+    ports:
+      - "7979:80"
+  santascodingworkshop:
+    build: ./santascodingworkshop/
+    ports:
+      - "5000:80"
+  santasdisco:
+    build: ./santasdisco/
+    ports:
+      - "5001:8080"
+  wishlistrenderer:
+    build: ./wishlistrenderer/
+    ports:
+      - "82:8888"
+
+  portal:
+    build: ./portal/HackerPortal/
+    ports:
+      - "80:80"

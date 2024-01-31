@@ -1,0 +1,13 @@
+﻿@page
+@model LogoutModel
+@{
+    Layout = "_Layout";
+}
+
+<h1>Logout</h1>
+<h2>Are you sure you want to log out?</h2>
+<form method="post">
+    <button type="submit" class="btn btn-primary">Logout</button>
+</form>
+<!-- or return to /Challs with this button -->
+<a asp-page="/Challs" class="btn btn-primary">Return to Challs</a>

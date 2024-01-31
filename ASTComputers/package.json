@@ -1,0 +1,21 @@
+{
+  "name": "astcomputers",
+  "version": "1.0.0",
+  "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://ntlracoon@dev.azure.com/ntlracoon/HackTheBankv3/_git/ASTComputers"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "flat": "^5.0.0",
+    "handlebars": "^4.7.7",
+    "serve-static": "^1.15.0"
+  }
+}

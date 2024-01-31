@@ -1,0 +1,46 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #222;
+    color: #0ea;
+    margin: 0 auto;
+   
+}
+div{
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    max-width: 850px;
+}
+
+h1{
+    text-align: center;
+}
+
+img {
+    width: 100%;
+}
+
+input{
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid #222;
+    font-family: 'Press Start 2P';
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+form{
+    display: block;
+    width: 100%;
+    margin-left: 50%;
+    padding: 10px;
+}
+
+p{
+    font-size: .74em;
+}
+
+span{
+    color: #8ea;
+}

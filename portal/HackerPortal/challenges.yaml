@@ -1,0 +1,55 @@
+- Title: Santas Bingo
+  Description: So Santa decided to give you an early Christmas present! All you have to do is guess a value! Easy right?
+  Link: http://localhost:7979
+  Points: 200
+  Hint: Testing should be forbidden... this QA department needs work...
+  Flag: ${M@n_5@n7@_5ur3_Luvz_P4P_Y3t_I_4@73_I7!!!}
+
+- Title: Receipt Uploader
+  Description: Who doesn't love PHP? Can you think of a way to take over this site?
+  Link: http://localhost:81
+  Points: 200
+  Hint: How does the server know you have an image? How can you exploit something with an image? Aren't they just binary data?
+  Flag: ${#1m@g3s_@r3_7h3_w0r57}
+
+- Title: Wishlist Renderer
+  Description: So the developer elf has been busy making this great tool for Santa to get all wishlists uploaded and formatted correctly. You can really just mark down your wishlist and see the great rendered result!
+  Link: http://localhost:82
+  Points: 200
+  Hint: No flag.txt this time... you need to find a very common *nix file... Seasons greetings to you all!
+  Flag: ${5@nta5_li77l3_h3lp3r!}
+
+- Title: Grinch Calculator
+  Description: So the Grinch is trying to do some coding as well, and he has built this lovely scientific calculator! Can you find the hidden secret?
+  Link: http://localhost:83
+  Points: 200
+  Hint: Maybe you need to know alot about maths... or maybe trig?
+  Flag: ${#N3V3R_7RU5T_L|B5_743Y_@R3_3V|7}
+
+- Title: Grinch Serial Killer
+  Description: So we have identified all the villains through Santas Blog. Here are the 10 most wanted characters on the North Pole!
+  Link: http://localhost:84
+  Points: 200
+  Hint: There was 5941 applicants to this list... go figure.... sounds a bit UNcivilized...
+  Flag: ${W0V_53RI@7_KI113R5_C@N_B3_D3@D7Y!}
+
+- Title: AST Computers
+  Description: Look at this site! Can you figure out what is going on?
+  Link: http://localhost:85
+  Points: 200
+  Hint: I wonder what that acronym stands for?
+  Flag: ${#YouGottaLoveThisFormOfPollution!}
+
+- Title: Santa's Coding Workshop
+  Description: Santa's starting to get more serious into coding. He is now really invested in learning graphics and game programming. After he found that awesome graphics library, he has been quite a productive coder! Check out all his nice computer generated imagery here!
+  Link: http://localhost:5000
+  Points: 400
+  Hint: Now where can the vulnerability be hiding? Is it in one of the games or graphics demos?  And wasn't this a pwn chall? Where is my bin?
+  Flag: ${74I5_I5_W4Y_W3_C@N7_4@V3_NIC3_74IN65:@:@:@:@}
+
+- Title: Santa's Disco
+  Description: It's happening!! On OCT 31 the annual North Pole Rave will kick off! And DJ Oiler is releasing his new album!</p><p>Look here for all the details of the event!
+  Link: http://localhost:5001
+  Points: 400
+  Hint: I wonder why the skit \"Dinner for One\" comes to mind?
+  Flag: ${04_I11_KI11_74@7_C@7!}

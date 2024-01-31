@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dcl.js"></script>
+    <title>Mouse Library Examples</title>
+</head>
+<body>
+<script>
+    var scr = dcl.setupScreen(window.innerWidth, window.innerHeight);
+    scr.setBgColor("black");
+    function draw() {
+        let lftClr, rgtClr;
+        if(MOUSE.clickLeft){
+            lftClr = RED;
+        } else {
+            lftClr = WHITE;
+        }
+        if(MOUSE.clickRight){
+            rgtClr = BLUE;
+        } else {
+            rgtClr = WHITE;
+        }
+        dcl.rect(scr.width/2 - 125, scr.height/2 - 200, 251, 400, WHITE);
+        dcl.rect(scr.width/2 - 123, scr.height/2 - 198, 122, 150, lftClr, 1, GRAY);
+        dcl.rect(scr.width/2+2, scr.height/2 - 198, 122, 150, rgtClr, 1, GRAY);
+        dcl.text(`x:${MOUSE.pos.x} y:${MOUSE.pos.y}`, scr.width/2, scr.height/2);
+    };
+    // dcl.stopAnimation();
+    dcl.animate();
+</script>
+</body>
+</html>

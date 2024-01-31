@@ -1,0 +1,26 @@
+{
+  "name": "StarField",
+  "authors": [
+    "espensl <espensl@compello.com>"
+  ],
+  "description": "A example of a star field effect in js",
+  "main": "index.html",
+  "keywords": [
+    "starfield",
+    "gfx",
+    "demo"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "drc.canvas.lib": "DrCircuitsCanvasLibrary#*"
+  }
+}

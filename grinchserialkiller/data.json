@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Easter Bunny",
+        "portrait": "easter_bunny.png",
+        "description": "A mythical creature associated with the holiday of Easter, who is said to bring Easter eggs to children."
+    },
+    {
+        "name": "Tooth Fairy",
+        "portrait": "tooth_fairy.png",
+        "description": "A mythical creature who is believed to exchange children's lost teeth for small gifts."
+    },
+    {
+        "name": "Rumpelstiltskin",
+        "portrait": "rumpelstiltskin.png",
+        "description": "A fairy tale character who is known for being able to spin straw into gold."
+    },
+    {
+        "name": "Rapunzel",
+        "portrait": "rapunzel.png",
+        "description": "A fairy tale character who is known for her long, golden hair and her confinement in a tower."
+    },
+    {
+        "name": "Snow White",
+        "portrait": "snow_white.png",
+        "description": "A fairy tale character who is known for her beauty and her encounter with seven dwarves."
+    },
+    {
+        "name": "Wicked Witch",
+        "portrait": "wicked_witch.png",
+        "description": "A character from fairy tales and folklore, often depicted as being wicked and malevolent."
+    },
+    {
+        "name": "Bigfoot",
+        "portrait": "bigfoot.png",
+        "description": "A mythical creature that is said to be a large, ape-like creature that roams the forests of North America."
+    },
+    {
+        "name": "Yeti",
+        "portrait": "yeti.png",
+        "description": "A mythical creature that is said to inhabit the Himalayan region of Nepal and Tibet. It is also known as the Abominable Snowman."
+    },
+    {
+        "name": "Unicorn Joe",
+        "portrait": "unicorn_joe.png",
+        "description": "A mythical creature with the body of a horse and a single spiral horn on its forehead."
+    },
+    {
+        "name": "The Grinch",
+        "portrait": "the_grinch.png",
+        "description": "A fictional character created by Dr. Seuss, who is known for trying to steal Christmas."
+    }
+]

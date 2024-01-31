@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The Grinch's Special Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <style>
+        .col {
+            width: 200px;
+            display: flex;
+            justify-content: left;
+        }
+
+        .btn {
+            margin: 10px;
+            width: 60px !important;
+            display: inline-block !important;
+        }
+
+        .col .btn-secondary {}
+
+        .col .btn-wide {
+            width: 140px !important;
+        }
+
+        .col .btn-ultra-wide {
+            width: 300px !important;
+        }
+
+        #screen {
+            width: 320px;
+            height: 200px;
+            text-align: right;
+            border-radius: 20px;
+            background-color: #444;
+            color: #0e0;
+            font-family: monospace;
+            ;
+            font-weight: 800;
+            padding: 10px;
+            overflow: auto;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .body {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            min-height: 100%;
+            text-align: center;
+            background-size: cover;
+            flex-direction: column;
+            background: linear-gradient(132deg, rgb(146, 11, 126) 0.00%, rgb(52, 29, 49) 100.00%);
+        }
+
+        .two {
+            flex: 1;
+        }
+
+        .calc {
+            border: 1px solid #222;
+            width: 360px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #111;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <div class="two">
+            <div class="container">
+                <h1>The Grinch's Special Calculator</h1>
+                <div class="calc">
+                    <div class="row">
+                        <div class="col">
+                            <div id="screen" contenteditable="true">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-danger btn-wide" id="c">C</button>
+                            <button class="btn btn-info" id="left-paren">(</button>
+                            <button class="btn btn-info" id="right-paren">)</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-warning btn-wide" id="pi">pi</button>
+                            <button class="btn btn-warning" id="e">e</button>
+                            <button class="btn btn-warning" id="phi">phi</button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-dark" id="sin">sin</button>
+                            <button class="btn btn-dark" id="cos">cos</button>
+                            <button class="btn btn-dark" id="tan">tan</button>
+                            <button class="btn btn-primary" id="divide">/</button>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-secondary" id="num-7">7</button>
+                            <button class="btn btn-secondary" id="num-8">8</button>
+                            <button class="btn btn-secondary" id="num-9">9</button>
+                            <button class="btn btn-primary" id="add">+</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-secondary" id="num-4">4</button>
+                            <button class="btn btn-secondary" id="num-5">5</button>
+                            <button class="btn btn-secondary" id="num-6">6</button>
+                            <button class="btn btn-primary" id="subtract">-</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-secondary" id="num-1">1</button>
+                            <button class="btn btn-secondary" id="num-2">2</button>
+                            <button class="btn btn-secondary" id="num-3">3</button>
+                            <button class="btn btn-primary" id="multiply">*</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-secondary" id="num-0">0</button>
+                            <button class="btn btn-warning" id="num-dot">.</button>
+                            <button class="btn btn-primary btn-wide" id="equals">=</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-danger btn-ultra-wide" id="exec">exec</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let scr = document.getElementById("screen");
+        let bnts = document.getElementsByTagName("button");
+
+        function clear() {
+            scr.innerText = "";
+        }
+        function exec() {
+            fetch("/evaluate", {
+                method: "post",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({ exp: scr.innerText })
+            })
+                .then(res => res.json())
+                .then(json => {
+                    scr.innerText = json.result;
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        }
+        for (let i = 0; i < bnts.length; i++) {
+            if (bnts[i].id === "c") {
+                bnts[i].addEventListener("click", clear);
+                continue;
+
+            }
+            else if (bnts[i].id === "exec") {
+                bnts[i].addEventListener("click", exec);
+                continue;
+
+            }
+            bnts[i].addEventListener("click", (e) => {
+
+                scr.innerText += e.target.innerText;
+            });
+        }
+    </script>
+</body>
+
+</html>
