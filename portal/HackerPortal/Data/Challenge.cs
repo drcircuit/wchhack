@@ -15,6 +15,8 @@ public class Challenge
     public string Link { get; set; }
 
     public int Points { get; set; }
+    [Required]
+    public string Category { get; set; }
 
     [Required]
     public string Hint { get; set; }

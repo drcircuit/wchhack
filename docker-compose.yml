@@ -43,6 +43,19 @@ services:
     build: ./morse102/
     ports:
       - "5004:80"
+  reverse101:
+    build: ./reverse101/
+    ports:
+      - "5005:80"
+  reverse102:
+    build: ./reverse102/
+    ports:
+      - "5006:80"
+  pwn101:
+    build: ./pwn101/
+    ports:
+      - "5007:80"
+      - "22:22"
   portal:
     build: ./portal/HackerPortal/
     ports:

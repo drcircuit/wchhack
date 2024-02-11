@@ -5,7 +5,7 @@
 @if (User.Identity.IsAuthenticated)
 {
     <h1>Challenges</h1>
-
+    <p>Here are the challenges you can solve. Good luck!</p>
     <div class="row">
     @foreach (var challenge in Model.Challenges)
         {
@@ -19,6 +19,7 @@
                             <tr>
                                 <th>Description:</th>
                                 <td>@challenge.Description</td>
+                                <td>@challenge.Category</td>
                             </tr>
                         
                             <tr>

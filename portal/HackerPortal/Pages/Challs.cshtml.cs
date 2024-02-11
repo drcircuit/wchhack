@@ -48,8 +48,12 @@ public class ChallsModel : PageModel
 
     public async Task OnGetAsync()
     {
-        // Retrieve the challenges from the database
-        Challenges = await _dbContext.Challenges.ToListAsync();
+        // Retrieve the challenges from the database, ordereed by category and points
+
+        Challenges = await _dbContext.Challenges
+            .OrderBy(c => c.Category)
+            .ThenBy(c => c.Points)
+            .ToListAsync();
     }
 
     public async Task<IActionResult> OnPostCheckAnswerAsync([FromBody] FlagCheck flagcheck)
