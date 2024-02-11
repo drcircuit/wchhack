@@ -31,7 +31,18 @@ services:
     build: ./wishlistrenderer/
     ports:
       - "82:8888"
-
+  morse101:
+    build: ./morse101/
+    ports:
+      - "5002:80"
+  emojihack:
+    build: ./emojihack/
+    ports:
+      - "5003:80"
+  morse102:
+    build: ./morse102/
+    ports:
+      - "5004:80"
   portal:
     build: ./portal/HackerPortal/
     ports:

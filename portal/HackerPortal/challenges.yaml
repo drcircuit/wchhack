@@ -53,3 +53,60 @@
   Points: 400
   Hint: I wonder why the skit \"Dinner for One\" comes to mind?
   Flag: ${04_I11_KI11_74@7_C@7!}
+
+- Title: Morse101
+  Description: So can you decode this message?
+  Link: http://localhost:5002
+  Points: 200
+  Hint: We've talked about this...
+  Flag: ${SAMSENTME}
+
+- Title: Morse102
+  Description: Another one for you...
+  Link: http://localhost5004
+  Points: 300
+  Hint: Remember to format as a ${flag}
+  Flag: ${deedaadeetcode}
+
+- Title: Emojihack
+  Description: So a bit more tricky this time, can you figure it out?
+  Link: http://localhost:5003
+  Points: 200
+  Hint: See if you can spot any patterns... remember to format as a ${FLAG}
+  Flag: ${emojisarebad}
+
+- Title: Encodings
+  Description: 83 111 32 104 101 114 101 32 105 115 32 121 111 117 114 32 36 123 65 83 67 73 73 70 108 97 103 125 make any sense?
+  Link: -
+  Points: 200
+  Hint: Hm, haven't we talked about this before?
+  Flag: ${ASCIIFlag}
+
+- Title: Encodings 2
+  Description: U28gaGVyZSBpcyB5b3VyICR7QmFzZTY0RmxhZ30= Make any sense?
+  Link: -
+  Points: 200
+  Hint: Pretty BASEic right?
+  Flag: ${Base64Flag}
+
+- Title: Crypto 101
+  Description: $uvFevFenePX?R$ezrFFntrheQBeABGeFunErhhhheSyntevFeurErjeklunvy$urRzCrEBEm can you hack it?
+  Link: -
+  Points: 200
+  Hint: A most unlucky shift has happened...
+  Flag: ${hailTheEmperor}
+
+- Title: Crypto 102
+  Description: SIDUGRFBXGARYW I wonder what this is
+  Points: 200
+  Link: -
+  Hint: WXHXOR sent you...
+  Flag: ${PLAYFAIRCKRET}
+
+- Title: Hashing 101
+  Description: $1$wch$cNsaq1pmLohnYZDyT8u06/ Can you crack it?
+  Points: 200
+  Hint: Not jack the ripper but...
+  Link: -
+  Flag: ${letmein}
+
