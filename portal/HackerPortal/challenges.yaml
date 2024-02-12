@@ -157,3 +157,11 @@
   Hint: So this isn't a native binary... and not an ELF... what could it be?
   Link: http://localhost:8888
   Flag: ${TheCakeIsNotALie}
+
+- Title: Echoplex
+  Description: So can you figure out what this is does?
+  Points: 400
+  Category: Reverse
+  Hint: I wonder if you can find out how to get the flag...
+  Link: http://localhost:8888
+  Flag: ${TheCakeIsNotALie}
