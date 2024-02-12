@@ -56,11 +56,59 @@ services:
     ports:
       - "5007:80"
       - "22:22"
-  echoplex:
-    build: ./echoplex/
+  roptrick:
+    build: ./ROPtrick/
     ports:
-      - "8088:8088"
-      - "8888:8888"
+      - 31337:31337
+      - 8787:80
+  overlord:
+    build: ./overlord/
+    ports:
+      - 31338:31337
+      - 8788:80
+  deshurts:
+    build: ./DEShurts/
+    ports:
+      - 8789:80
+
+  closerace:
+    build: ./CloseRace/
+    ports:
+      - "5008:80"
+
+  injectionpoint:
+    build: ./injectionPoint/
+    ports:
+      - "5011:80"
+  jedimindtrick:
+    build: ./jedimindtrick/
+    ports:
+      - "5012:80"
+      - "2187:2187"
+  strings:
+    build: ./strings/
+    ports:
+      - "5013:80"
+      - "31339:31337"
+  timesrv:
+    build: ./timesrv/
+    ports:
+      - "31341:31337"
+      - "5017:80"
+  bankterminal:
+    build: ./bankterminal/
+    ports:
+      - "5014:80"
+      - "31340:31337"
+  citadel:
+    build: ./citadel/
+    ports:
+      - "5015:80"
+  citadel2:
+    build: ./citadel2/
+    ports:
+      - "5016:80"
+      - "23:22"
   portal:
     build: ./portal/HackerPortal/
     ports:

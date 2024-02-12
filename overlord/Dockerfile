@@ -6,14 +6,12 @@ RUN apt-get update && apt-get install -y apache2 && \
 
 # Copy static content to Apache's serve directory
 COPY index.html/ /var/www/html/
-RUN mkdir /var/www/html/bin
-
+ADD bin/ /var/www/html/bin
 WORKDIR /challenge
-COPY stringit.c /challenge/
+COPY overlord.c /challenge/
 COPY flag.txt /flag.txt
-RUN gcc -o challenge stringit.c -fno-stack-protector -z execstack -no-pie
+RUN gcc -o challenge overlord.c -fno-stack-protector -z execstack -no-pie
 RUN chmod +x challenge
-RUN cp ./challenge /var/www/html/bin/challenge
 
 # Expose the port for the Apache server
 EXPOSE 80

@@ -6,12 +6,14 @@ RUN apt-get update && apt-get install -y apache2 && \
 
 # Copy static content to Apache's serve directory
 COPY index.html/ /var/www/html/
-ADD bin/ /var/www/html/bin
+RUN mkdir /var/www/html/bin
+
 WORKDIR /challenge
-COPY roptrick.c /challenge/
+COPY time.c /challenge/
 COPY flag.txt /flag.txt
-RUN gcc -o challenge roptrick.c -fno-stack-protector -z execstack -no-pie
+RUN gcc -o challenge time.c -fno-stack-protector -z execstack -no-pie
 RUN chmod +x challenge
+RUN cp ./challenge /var/www/html/bin/challenge
 
 # Expose the port for the Apache server
 EXPOSE 80

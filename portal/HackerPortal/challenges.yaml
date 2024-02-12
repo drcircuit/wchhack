@@ -165,3 +165,75 @@
   Hint: I wonder if you can find out how to get the flag...
   Link: http://localhost:8888
   Flag: ${TheCakeIsNotALie}
+
+- Title: ROPTrick
+  Description: So can you figure out what this is does?
+  Points: 400
+  Category: Pwn
+  Hint: I wonder if you can find out how to get the flag...
+  Link: http://localhost:8787
+  Flag: ${ROPTrickPWNED!}
+
+- Title: DESHurts
+  Description: So can you figure out how to break this?
+  Points: 400
+  Category: Crypto
+  Hint: Could the keys be weak?
+  Link: http://localhost:8789
+  Flag: ${DESHurtzVeryMuch!}
+
+- Title: CloseRace
+  Description: Looks like some hard core encryption right?
+  Points: 400
+  Category: Crypto
+  Hint: You may need a little help, not from your friends, but from a certain French mathematician... 
+  Link: http://localhost:5008
+  Flag: ${ClosePrimesAreBadForRacing!}
+
+- Title: Citadel
+  Description: So can you figure out how to break this?
+  Points: 4000
+  Category: Pwn
+  Hint: This brings it all together... web first then break...
+  Link: http://localhost:5015
+  Flag: ${IHopeYouHadFun}
+
+- Title: Bankterminal
+  Description: So can you figure out how to break this?
+  Points: 400
+  Category: Pwn
+  Hint: Ok, so look at the binary... see anything peculiar?
+  Link: http://localhost:5014
+  Flag: ${MemoryCorruptionHappensSoFast}
+
+- Title: Timsrv
+  Description: So can you figure out how to break this?
+  Points: 400
+  Category: Pwn
+  Hint: Ok, so look at the binary... see anything peculiar?
+  Link: http://localhost:5017
+  Flag: ${RemoteArbitraryCodeExecutionIsJustSoSatisfying...}
+
+- Title: String
+  Description: So can you figure out how to break this?
+  Points: 400
+  Category: Pwn
+  Hint: Ok, so look at the binary... see anything peculiar?
+  Link: http://localhost:5013
+  Flag: ${StringsAreBad}
+
+- Title: JediMindtrick
+  Description: So can you figure out how to break this?
+  Points: 400
+  Category: Pwn
+  Hint: Ok, so look at the binary... see anything peculiar?
+  Link: http://localhost:5012
+  Flag: ${TheForceIsStrongWithThisOne}
+
+- Title: InjectionPoint
+  Description: So can you figure out how to break this?
+  Points: 400
+  Category: Pwn
+  Hint: Ok, so look at the binary... see anything peculiar?
+  Link: http://localhost:5011
+  Flag: ${injectionComplete}
