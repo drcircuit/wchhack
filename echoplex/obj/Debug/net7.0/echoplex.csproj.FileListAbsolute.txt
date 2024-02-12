@@ -1,0 +1,14 @@
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/bin/Debug/net7.0/echoplex
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/bin/Debug/net7.0/echoplex.deps.json
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/bin/Debug/net7.0/echoplex.runtimeconfig.json
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/bin/Debug/net7.0/echoplex.dll
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/bin/Debug/net7.0/echoplex.pdb
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/obj/Debug/net7.0/echoplex.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/obj/Debug/net7.0/echoplex.AssemblyInfoInputs.cache
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/obj/Debug/net7.0/echoplex.AssemblyInfo.cs
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/obj/Debug/net7.0/echoplex.csproj.CoreCompileInputs.cache
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/obj/Debug/net7.0/echoplex.dll
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/obj/Debug/net7.0/refint/echoplex.dll
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/obj/Debug/net7.0/echoplex.pdb
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/obj/Debug/net7.0/echoplex.genruntimeconfig.cache
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/obj/Debug/net7.0/ref/echoplex.dll

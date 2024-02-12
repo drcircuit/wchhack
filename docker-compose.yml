@@ -22,7 +22,7 @@ services:
   santascodingworkshop:
     build: ./santascodingworkshop/
     ports:
-      - "5000:80"
+      - "5010:80"
   santasdisco:
     build: ./santasdisco/
     ports:
@@ -56,6 +56,11 @@ services:
     ports:
       - "5007:80"
       - "22:22"
+  echoplex:
+    build: ./echoplex/
+    ports:
+      -"8088:8088"
+      -"8888:8888"
   portal:
     build: ./portal/HackerPortal/
     ports:

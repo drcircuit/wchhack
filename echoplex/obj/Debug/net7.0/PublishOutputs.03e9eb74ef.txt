@@ -1,0 +1,5 @@
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/bin/Debug/net7.0/publish/echoplex
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/bin/Debug/net7.0/publish/echoplex.dll
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/bin/Debug/net7.0/publish/echoplex.deps.json
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/bin/Debug/net7.0/publish/echoplex.runtimeconfig.json
+/mnt/c/Users/espen/hack/hhw/web/wchhack/echoplex/bin/Debug/net7.0/publish/echoplex.pdb

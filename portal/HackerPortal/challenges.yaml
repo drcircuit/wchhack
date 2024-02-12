@@ -48,7 +48,7 @@
 
 - Title: Santa's Coding Workshop
   Description: Santa's starting to get more serious into coding. He is now really invested in learning graphics and game programming. After he found that awesome graphics library, he has been quite a productive coder! Check out all his nice computer generated imagery here!
-  Link: http://localhost:5000
+  Link: http://localhost:5010
   Points: 400
   Category: Web
   Hint: Now where can the vulnerability be hiding? Is it in one of the games or graphics demos?  And wasn't this a pwn chall? Where is my bin?
@@ -149,3 +149,11 @@
   Hint: I wonder if you can find the vulnerability...
   Link: http://localhost:5007
   Flag: ${pwnedYouGood}
+
+- Title: Reverse103
+  Description: Ok enough ELF...
+  Points: 200
+  Category: Reverse
+  Hint: So this isn't a native binary... and not an ELF... what could it be?
+  Link: http://localhost:8888
+  Flag: ${TheCakeIsNotALie}
