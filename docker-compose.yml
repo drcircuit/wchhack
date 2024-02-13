@@ -51,11 +51,15 @@ services:
     build: ./reverse102/
     ports:
       - "5006:80"
+  adminjokes:
+    build: ./adminjokes/
+    ports:
+      - "8999:3000"
   echoplex:
     build: ./echoplex/
     ports:
       - "8088:8088"
-      - "8888:80"
+      - "8888:8888"
   pwn101:
     build: ./pwn101/
     ports:

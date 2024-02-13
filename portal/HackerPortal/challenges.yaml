@@ -237,3 +237,11 @@
   Hint: Ok, so look at the binary... see anything peculiar?
   Link: http://localhost:5011
   Flag: ${injectionComplete}
+
+- Title: AdminJokes
+  Description: So what is going on here?
+  Points: 400
+  Category: Web
+  Hint: Ok, so let's poke around the cookie jar
+  Link: http://localhost:8999/message-wall
+  Flag: ${#IEatCookies4Breakfast!}
