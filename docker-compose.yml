@@ -53,6 +53,7 @@ services:
       - "5006:80"
   adminjokes:
     build: ./adminjokes/
+    platform: linux/amd64
     ports:
       - "8999:3000"
   echoplex:
